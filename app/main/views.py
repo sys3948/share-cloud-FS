@@ -13,5 +13,5 @@ def upload():
         print('upload/ OPTIONS Method 요청함.')
         res.headers.add("Access-Control-Allow-Origin", "*")
         res.headers.add("Access-Control-Allow-Headers", "*")
-    return res
+    return jsonify({'msg' : 'Hello World!'})
 
