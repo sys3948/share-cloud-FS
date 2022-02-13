@@ -15,5 +15,6 @@ def upload():
 def create_folder():
     print('Http 통신 성공!')
     print(request)
+    print(request.form)
     return 'hello world!'
 
