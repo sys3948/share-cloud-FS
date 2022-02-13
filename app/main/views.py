@@ -10,3 +10,9 @@ def upload():
         print('upload/ OPTIONS Method 요청함.')
     return jsonify({'msg' : 'Hello World!'})
 
+
+@main.route('/create_folder', methods=['POST'])
+def create_folder():
+    print('Http 통신 성공!')
+    return 'hello world!'
+
