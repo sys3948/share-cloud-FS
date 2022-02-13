@@ -14,5 +14,6 @@ def upload():
 @main.route('/create_folder', methods=['POST'])
 def create_folder():
     print('Http 통신 성공!')
+    print(request)
     return 'hello world!'
 
