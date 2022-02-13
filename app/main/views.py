@@ -18,7 +18,8 @@ def create_folder():
     print('Http 통신 성공!')
     print(request.form)
     print(request.form.get('id'))
-    print(cryptocode.decrypt(request.form.get('id'), current_app.config('DECODE_KEY')))
-    # os.mkdir('/SFS/' + request.form.get('id'))
+    print(cryptocode.decrypt(request.form.get('id'), current_app.config['DECODE_KEY']))
+    folder_name = cryptocode.decrypt(request.form.get('id'), current_app.config['DECODE_KEY'])
+    os.mkdir('/SFS/' + folder_name)
     return 'hello world!'
 
