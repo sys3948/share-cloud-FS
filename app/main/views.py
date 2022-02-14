@@ -1,3 +1,4 @@
+import json
 from flask import jsonify, request, current_app
 import os
 import cryptocode
@@ -15,11 +16,19 @@ def upload():
 
 @main.route('/create_folder', methods=['POST'])
 def create_folder():
-    print('Http 통신 성공!')
-    print(request.form)
-    print(request.form.get('id'))
-    print(cryptocode.decrypt(request.form.get('id'), current_app.config['DECODE_KEY']))
-    folder_name = cryptocode.decrypt(request.form.get('id'), current_app.config['DECODE_KEY'])
-    os.mkdir('/SFS/' + folder_name)
-    return 'hello world!'
+    msg = '폴더 생성 완료!'
+    status_code = 200
+    try:
+        folder_name = cryptocode.decrypt(request.form.get('id'), current_app.config['DECODE_KEY'])
+        os.mkdir('/SFS/' + folder_name)
+    except Exception as e:
+        msg = '오류 발생! 오류 내용은 ' + str(e) + '입니다.'
+        status_code = 500
+    return jsonify({'msg' : msg, 'status' : status_code})
 
+
+@main.route('/test_def')
+def test_def():
+    msg = '폴더 생성 완료!'
+    status_code = 200
+    return jsonify({'msg' : msg, 'status' : status_code})
