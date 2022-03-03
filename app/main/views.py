@@ -14,7 +14,7 @@ def upload():
     return jsonify({'msg' : 'Hello World!'})
 
 
-@main.route('/create_folder', methods=['POST'])
+@main.route('/create_user_folder', methods=['POST'])
 def create_folder():
     msg = '폴더 생성 완료!'
     status_code = 200
