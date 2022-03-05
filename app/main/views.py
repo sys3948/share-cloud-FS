@@ -30,17 +30,18 @@ def create_user_folder():
 def create_folder():
     msg = '폴더 생성 완료!'
     status_code = 200
-    print('POST request check!')
+    folder = ''
     try:
-        print('try statement check!')
-        print('request data!!')
-        print(request.form)
         root_name = cryptocode.decrypt(request.form.get('root'), current_app.config['DECODE_KEY'])
         upper_folder_name = cryptocode.decrypt(request.form.get('upper_folder'), current_app.config['DECODE_KEY'])
         folder_name = cryptocode.decrypt(request.form.get('folder'), current_app.config['DECODE_KEY'])
-        print(root_name)
-        print(upper_folder_name)
-        print(folder_name)
+        
+        folder += root_name
+        if upper_folder_name:
+            folder += upper_folder_name
+        folder += folder_name
+
+        os.mkdir('/SFS/' + folder)
     except Exception as e:
         msg = '오류 발생! 오류 내용은 ' + str(e) + '입니다.'
         status_code = 500
