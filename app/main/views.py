@@ -30,7 +30,9 @@ def create_user_folder():
 def create_folder():
     msg = '폴더 생성 완료!'
     status_code = 200
+    print('POST request check!')
     try:
+        print('try statement check!')
         root_name = cryptocode.decrypt(request.form.get('root'), current_app.config['DECODE_KEY'])
         upper_folder_name = cryptocode.decrypt(request.form.get('upper_folder'), current_app.config['DECODE_KEY'])
         folder_name = cryptocode.decrypt(request.form.get('folder'), current_app.config['DECODE_KEY'])
