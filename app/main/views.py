@@ -33,6 +33,8 @@ def create_folder():
     print('POST request check!')
     try:
         print('try statement check!')
+        print('request data!!')
+        print(request.form)
         root_name = cryptocode.decrypt(request.form.get('root'), current_app.config['DECODE_KEY'])
         upper_folder_name = cryptocode.decrypt(request.form.get('upper_folder'), current_app.config['DECODE_KEY'])
         folder_name = cryptocode.decrypt(request.form.get('folder'), current_app.config['DECODE_KEY'])
