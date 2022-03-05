@@ -36,9 +36,9 @@ def create_folder():
         upper_folder_name = cryptocode.decrypt(request.form.get('upper_folder'), current_app.config['DECODE_KEY'])
         folder_name = cryptocode.decrypt(request.form.get('folder'), current_app.config['DECODE_KEY'])
         
-        folder += root_name
+        folder += root_name + '/'
         if upper_folder_name:
-            folder += upper_folder_name
+            folder += upper_folder_name + '/'
         folder += folder_name
 
         print(folder)
