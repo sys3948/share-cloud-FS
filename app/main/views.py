@@ -41,6 +41,8 @@ def create_folder():
             folder += upper_folder_name
         folder += folder_name
 
+        print(folder)
+
         os.mkdir('/SFS/' + folder)
     except Exception as e:
         msg = '오류 발생! 오류 내용은 ' + str(e) + '입니다.'
