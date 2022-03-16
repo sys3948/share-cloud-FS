@@ -38,7 +38,7 @@ def create_folder():
         
         folder += root_name + '/'
         if upper_folder_name:
-            folder += upper_folder_name + '/'
+            folder += upper_folder_name
         folder += folder_name
 
         print(folder)
